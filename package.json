@@ -13,18 +13,16 @@
     "medusa"
   ],
   "scripts": {
-    "clean": "cross-env ./node_modules/.bin/rimraf dist",
-    "build": "cross-env npm run clean && tsc -p tsconfig.json",
-    "watch": "cross-env tsc --watch",
-    "test": "cross-env jest",
-    "seed": "cross-env medusa seed -f ./data/seed.json",
-    "start": "cross-env npm run build && medusa start",
-    "start:custom": "cross-env npm run build && node --preserve-symlinks index.js",
-    "dev": "cross-env npm run build && medusa develop",
+    "serve": "medusa start",
+    "start": "medusa develop",
+    "heroku-postbuild": "medusa migrations run",
+    "prepare": "npm run build",
+    "build": "babel src -d dist --extensions \".ts,.js\"",
     "build:admin": "cross-env medusa-admin build"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.21.4",
+    "@medusajs/admin": "^4.0.0",
     "@medusajs/cache-inmemory": "^1.8.4",
     "@medusajs/cache-redis": "^1.8.4",
     "@medusajs/event-bus-local": "^1.9.1",
@@ -35,6 +33,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "medusa-file-spaces": "^1.3.6",
     "medusa-fulfillment-manual": "^1.1.37",
     "medusa-interfaces": "^1.3.7",
     "medusa-payment-manual": "^1.0.23",
