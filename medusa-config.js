@@ -31,10 +31,10 @@ const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
 const DATABASE_TYPE = process.env.DATABASE_TYPE || "postgres";
 const DATABASE_URL =
   process.env.DATABASE_URL ||
-  "postgres://localhost/medusa-store";
+  "postgres://xpyjfscgerhgyu:8582b489878a83b6f3d79ac4017bbab17a31ad883f3d4cf128a3bc3baa257bc8@ec2-44-206-204-65.compute-1.amazonaws.com:5432/d70dtkvlr97pcc";
 const REDIS_URL =
   process.env.REDIS_URL ||
-  "redis://localhost:6379";
+  "rediss://:37T5yQpfqRIACA9rYXh4g3wnjRwN8HHhdN1s5NmxfgjBs68BdqGk7SzWBF8NXYcE@6u16br.stackhero-network.com:6380";
 
 const plugins = [
   `medusa-fulfillment-manual`,
