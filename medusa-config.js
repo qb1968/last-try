@@ -80,8 +80,8 @@ const projectConfig = {
       process.env.NODE_ENV !== "development"
         ? { ssl: { rejectUnauthorized: false } }
         : {},
-  },
-};
+  }
+
 
 if (DATABASE_URL && DATABASE_TYPE === "postgres") {
   projectConfig.database_url = DATABASE_URL;
