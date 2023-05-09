@@ -70,12 +70,17 @@ const projectConfig = {
   cookieSecret: process.env.COOKIE_SECRET,
   database_url: DATABASE_URL,
   database_type: "postgres",
-  // database_database: "./medusa-db.sql",
+  database_database: "./medusa-db.sql",
   // database_type: DATABASE_TYPE,
   store_cors: STORE_CORS,
   admin_cors: ADMIN_CORS,
   // Uncomment the following lines to enable REDIS
   redis_url: REDIS_URL,
+   database_extra:
+      process.env.NODE_ENV !== "development"
+        ? { ssl: { rejectUnauthorized: false } }
+        : {},
+  },
 };
 
 if (DATABASE_URL && DATABASE_TYPE === "postgres") {
